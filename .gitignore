@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+runs/
+cache/
+configs/generated/
+*.pt
+*.pth
+*.ckpt
+
+.DS_Store

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rcr-ablations"
+version = "0.1.0"
+requires-python = ">=3.11,<3.13"
+dependencies = ["PyYAML>=6.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rcr_ablations*"]
