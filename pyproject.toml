@@ -5,9 +5,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rcr-ablations"
 version = "0.1.0"
+description = "B1–B3 EvidenceBinding ablations over the pinned RCR pipeline"
+readme = "README.md"
 requires-python = ">=3.11,<3.13"
-dependencies = ["PyYAML>=6.0"]
+dependencies = ["PyYAML>=6.0", "referential-composition-retrieval==0.1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+rcr-ablations = "rcr_ablations.run:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["rcr_ablations*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "third_party/rcr/src", "third_party/rcr"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["rcr", "rcr_ablations"]
